@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="./Styles/global.css">
+</head>
+<body>
+    <!-- Barra de Navegación Superior -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="navbar-brand" data-section="home">Ferretería Los Maestros</a>
+            <div class="navbar-links">
+                <a href="#home" data-section="home" class="active">Inicio</a>
+                <a href="#productos" data-section="productos">Productos</a>
+                <a href="#nosotros" data-section="nosotros">Nosotros</a>
+                <a href="#blogs" data-section="blogs">Blogs</a>
+                <a href="#contacto" data-section="contacto">Contacto</a>
+                <a href="#login" data-section="login">Iniciar Sesión</a>
+                <a href="#registro" data-section="registro">Registro</a>
+                <a href="#carrito" data-section="carrito">
+                    Carrito <span id="cart-counter" class="cart-badge">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. VISTA: HOME (INICIO) -->
+        <section id="home" class="view active">
+            <div class="bento-grid">
+                <article class="bento-item bento-large">
+                    <h3>Bienvenido a Los Maestros</h3>
+                    <p>Encuentra todos los materiales de construcción y herramientas para tus proyectos de obra con el mejor stock de La Serena y la IV Región.</p>
+                    <br>
+                    <button class="btn btn-primary" onclick="showSection('productos')">Ver Catálogo Completo</button>
+                </article>
+                <article class="bento-item">
+                    <h4>Herramientas Eléctricas</h4>
+                    <p>Las mejores marcas y garantías para contratistas.</p>
+                    <br>
+                    <button class="btn btn-secondary" onclick="showSection('productos')">Ver Categoría</button>
+                </article>
+                <article class="bento-item">
+                    <h4>Despacho a Obra</h4>
+                    <p>Cobertura inmediata en La Serena, Coquimbo y alrededores.</p>
+                </article>
+                <article class="bento-item bento-wide">
+                    <h4>Cuenta Corriente para Contratistas</h4>
+                    <p>Facilita tus compras mensuales con línea de crédito directa y atención personalizada en mesón.</p>
+                    <br>
+                    <button class="btn btn-primary" onclick="showSection('contacto')">Solicitar Información</button>
+                </article>
+                <article class="bento-item">
+                    <h4>Consejos de Obra</h4>
+                    <p>Aprende técnicas y mantenimiento en nuestro blog especializado.</p>
+                    <br>
+                    <button class="btn btn-secondary" onclick="showSection('blogs')">Leer Artículos</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- 2. VISTA: PRODUCTOS (CATÁLOGO DINÁMICO) -->
+        <section id="productos" class="view">
+            <h2 class="section-title">Catálogo de Productos</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                Materiales e insumos seleccionados con stock garantizado para tus obras.
+            </p>
+            <!-- Contenedor donde JavaScript inyectará las tarjetas de productos -->
+            <div id="contenedor-productos" class="cards-container">
+                <!-- Se llena dinámicamente desde main.js -->
+            </div>
+        </section>
+
+        <!-- 3. VISTA: NOSOTROS -->
+        <section id="nosotros" class="view">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <div style="background-color: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+                <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Nuestra Historia y Misión</h3>
+                <p style="margin-bottom: 1rem;">
+                    <strong>Ferretería Los Maestros</strong> nació en la ciudad de La Serena con el compromiso de apoyar a los maestros constructores, contratistas y familias de la región. Entregamos soluciones integrales de ferretería pesada y liviana, asesoría técnica de primer nivel y precios justos.
+                </p>
+                <p>
+                    Creemos en las relaciones de confianza a largo plazo, brindando abastecimiento puntual en obra y facilidades de pago para que ningún proyecto se detenga.
+                </p>
+            </div>
+
+            <h3 class="section-title" style="font-size: 1.4rem;">Nuestro Equipo</h3>
+            <div class="team-grid">
+                <article class="card">
+                    <h4 class="card-title">Don Carlos Vega</h4>
+                    <p style="color: var(--color-primary); font-weight: 600;">Fundador y Maestro Mayor</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Más de 35 años de experiencia en obras civiles y ferretería estructural.</p>
+                </article>
+                <article class="card">
+                    <h4 class="card-title">Ricardo Valdés</h4>
+                    <p style="color: var(--color-primary); font-weight: 600;">Especialista en Herramientas</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Encargado de servicio técnico, garantías y demostraciones de maquinaria.</p>
+                </article>
+                <article class="card">
+                    <h4 class="card-title">María Ignacia Díaz</h4>
+                    <p style="color: var(--color-primary); font-weight: 600;">Asesora Comercial y Logística</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Coordinación de despacho a faenas y gestión de cuentas corrientes.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 4. VISTA: BLOGS (LISTA DE NOTICIAS) -->
+        <section id="blogs" class="view">
+            <h2 class="section-title">Noticias y Consejos de Construcción</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                Artículos técnicos elaborados por nuestros expertos para optimizar tu trabajo en faena.
+            </p>
+            <div id="contenedor-blogs" class="cards-container">
+                <!-- Se llena dinámicamente desde main.js con las noticias -->
+            </div>
+        </section>
+
+        <!-- 5. VISTA: DETALLE BLOG (LECTURA COMPLETA) -->
+        <section id="detalle-blog" class="view">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <button class="btn btn-secondary" onclick="showSection('blogs')" style="margin-bottom: 1.5rem;">
+                    ← Volver a Noticias
+                </button>
+                <article class="blog-detail-box">
+                    <h1 id="detalle-blog-titulo" style="color: var(--color-secondary); margin-bottom: 0.5rem;"></h1>
+                    <p id="detalle-blog-meta" class="blog-date"></p>
+                    <div id="detalle-blog-cuerpo" class="blog-detail-body"></div>
+                    <button class="btn btn-primary" onclick="showSection('blogs')">← Volver al listado de blogs</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- 6. VISTA: CONTACTO -->
+        <section id="contacto" class="view">
+            <div class="form-container">
+                <h2 class="section-title" style="text-align: center;">Contacto y Cotizaciones</h2>
+                <div id="alerta-contacto" class="alert-success">
+                    ¡Mensaje enviado con éxito! Nos comunicaremos contigo a la brevedad.
+                </div>
+                <form id="form-contacto" novalidate>
+                    <div class="form-group">
+                        <label for="contacto-nombre">Nombre Completo (Contratista / Particular)</label>
+                        <input type="text" id="contacto-nombre" class="form-control" placeholder="Ej. Juan Pérez" maxlength="100">
+                        <span class="error-message" id="error-contacto-nombre">El nombre es obligatorio (máximo 100 caracteres).</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contacto-email">Correo Electrónico</label>
+                        <input type="email" id="contacto-email" class="form-control" placeholder="ejemplo@duoc.cl" maxlength="100">
+                        <span class="error-message" id="error-contacto-email">Correo obligatorio (máx 100 caracteres) con dominios permitidos: @duoc.cl, @profesor.duoc.cl o @gmail.com.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contacto-comentario">Comentario o Consulta</label>
+                        <textarea id="contacto-comentario" class="form-control" rows="4" placeholder="Indica los materiales o servicios que necesitas..." maxlength="500"></textarea>
+                        <span class="error-message" id="error-contacto-comentario">El comentario es obligatorio (máximo 500 caracteres).</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 7. VISTA: INICIAR SESIÓN -->
+        <section id="login" class="view">
+            <div class="form-container">
+                <h2 class="section-title" style="text-align: center;">Iniciar Sesión</h2>
+                <div id="alerta-login" class="alert-success">
+                    ¡Inicio de sesión exitoso! Bienvenido al sistema.
+                </div>
+                <form id="form-login" novalidate>
+                    <div class="form-group">
+                        <label for="login-email">Correo Electrónico</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="usuario@duoc.cl" maxlength="100">
+                        <span class="error-message" id="error-login-email">Ingresa un correo válido (máx 100 car.) con dominios permitidos: @duoc.cl, @profesor.duoc.cl o @gmail.com.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="Entre 4 y 10 caracteres" maxlength="10">
+                        <span class="error-message" id="error-login-password">La contraseña es obligatoria y debe tener entre 4 y 10 caracteres.</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Ingresar</button>
+                </form>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <p style="color: var(--text-muted);">
+                        ¿No tienes una cuenta? 
+                        <a href="#registro" onclick="showSection('registro')" style="color: var(--color-primary); font-weight: bold;">Regístrate aquí</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. VISTA: REGISTRO USUARIO -->
+        <section id="registro" class="view">
+            <div class="form-container">
+                <h2 class="section-title" style="text-align: center;">Registro de Usuario</h2>
+                <div id="alerta-registro" class="alert-success">
+                    ¡Cuenta creada exitosamente! Ya puedes iniciar sesión con tus credenciales.
+                </div>
+                <form id="form-registro" novalidate>
+                    <div class="form-group">
+                        <label for="registro-nombre">Nombre Completo</label>
+                        <input type="text" id="registro-nombre" class="form-control" placeholder="Ej. Roberto Muñoz" maxlength="100">
+                        <span class="error-message" id="error-registro-nombre">El nombre es obligatorio (máx 100 caracteres).</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registro-email">Correo Electrónico</label>
+                        <input type="email" id="registro-email" class="form-control" placeholder="usuario@gmail.com" maxlength="100">
+                        <span class="error-message" id="error-registro-email">Correo obligatorio (máx 100 car.) con dominios permitidos: @duoc.cl, @profesor.duoc.cl o @gmail.com.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registro-password">Contraseña</label>
+                        <input type="password" id="registro-password" class="form-control" placeholder="Entre 4 y 10 caracteres" maxlength="10">
+                        <span class="error-message" id="error-registro-password">La contraseña debe tener entre 4 y 10 caracteres.</span>
+                    </div>
+
+                    <!-- Selector de Región -->
+                    <div class="form-group">
+                        <label for="registro-region">Región</label>
+                        <select id="registro-region" class="form-control">
+                            <option value="">-- Selecciona una región --</option>
+                        </select>
+                        <span class="error-message" id="error-registro-region">Debes seleccionar una región.</span>
+                    </div>
+
+                    <!-- Selector de Comuna  -->
+                    <div class="form-group">
+                        <label for="registro-comuna">Comuna</label>
+                        <select id="registro-comuna" class="form-control" disabled>
+                            <option value="">-- Primero selecciona una región --</option>
+                        </select>
+                        <span class="error-message" id="error-registro-comuna">Debes seleccionar una comuna válida.</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Crear Cuenta</button>
+                </form>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <p style="color: var(--text-muted);">
+                        ¿Ya tienes cuenta? 
+                        <a href="#login" onclick="showSection('login')" style="color: var(--color-primary); font-weight: bold;">Inicia sesión aquí</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. VISTA: CARRITO -->
+        <section id="carrito" class="view">
+            <h2 class="section-title">Carrito de Compras</h2>
+            <div id="alerta-carrito" class="alert-success">
+                ¡Compra finalizada con éxito! Te contactaremos para coordinar el despacho.
+            </div>
+
+            <!-- Contenido dinámico del carrito  -->
+            <div id="carrito-contenido"></div>
+        </section>
+    </main>
+
+    <!-- Footer común -->
+    <footer class="footer">
+        <p>© 2026 Ferretería Los Maestros. Villa Alemana, Region de Valparaiso.</p>
+        <p>Atención especializada a contratistas, maestros y público general. Envíos a toda la V Región.</p>
+    </footer>
+
+    <!-- Lógica de navegación, validaciones y carrito -->
+    <script src="main.js"></script>
+</body>
+</html>
